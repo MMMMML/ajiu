@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.banner {
+  width: 100%;
+  height: 100%;
+  background: url(../img/banner.jpg) no-repeat center;
+  background-size: 100% 114%;
+  position: relative;
+  > header > img {
+    width: 100%;
+    height: 100%;
+  }
+  > .shadow {
+    background: url(../img/outline.png) no-repeat;
+    background-size: 101%;
+    width: 101%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: -280/75rem;
+  }
+  > .word > img {
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    margin-top: 140/75rem;
+  }
+  > .card {
+    position: relative;
+    text-align: center;
+    > img {
+      width: 90%;
+      height: 100%;
+    }
+  }
+  > .nav {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    font-size: 14/75rem;
+    .transform {
+      background: #353538;
+      width: 100px;
+      height: 60%;
+      position: absolute;
+      top: 1%;
+      right: -1%;
+      border-radius: 5px;
+      transform: rotate(-3deg);
+    }
+    .warp {
+      width: 100%;
+      margin: 0 auto;
+      height: 60%;
+      background: #f00121;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 5px;
+      transform: rotate(-3deg);
+    }
+    > .nav-word {
+      width: 100%;
+      margin: 0 auto;
+      background: white;
+      transform: rotate(0deg);
+      padding-top: 140/75rem;
+      padding-bottom: 500/75rem;
+      border-radius: 5px;
+      font-family: "微软雅黑";
+      z-index: 1000;
+      color: #636363;
+      > .attention {
+        color: black;
+        font-size: 70/75rem;
+      }
+      > p {
+        padding: 0 140/75rem;
+        font-size: 64/75rem;
+        letter-spacing: 1px;
+      }
+      .dot {
+        padding-right: 20/75rem;
+        font-weight: 700;
+        color: #636363;
+      }
+      > .title {
+        font-size: 73/75rem;
+        font-weight: 700;
+        padding-bottom: 70/75rem;
+        color: black;
+      }
+      > .fontweight {
+        font-weight: 700;
+        color: #666;
+        padding-top: 140/75rem;
+        padding-bottom: 50/75rem;
+      }
+    }
+  }
+  > .box {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    > .footer {
+      background: white;
+      padding: 20px 0;
+      // border: 1px solid #fff;
+      position: relative;
+      > .guess {
+        background: url(../img/shadow.png);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 80px;
+        left: 0;
+      }
+      > .button {
+        width: 150px;
+        height: 40px;
+        background: red;
+        border-radius: 20px;
+        line-height: 40px;
+        margin: 0 auto;
+        > p {
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
