@@ -26,7 +26,6 @@
   width: 90%;
   height: 100%;
   margin-left: 5%;
-  margin-top: 1.86666667rem;
 }
 .banner > .card {
   position: relative;
@@ -47,30 +46,30 @@
 .banner > .nav .transform {
   background: #353538;
   width: 100px;
-  height: 60%;
+  height: 40%;
   position: absolute;
   top: 1%;
-  right: -1%;
+  right: -5%;
   border-radius: 5px;
   transform: rotate(-3deg);
 }
 .banner > .nav .warp {
   width: 100%;
   margin: 0 auto;
-  height: 60%;
+  height: 40%;
   background: #f00121;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 6px;
   border-radius: 5px;
-  transform: rotate(-3deg);
+  transform: rotate(-5deg);
 }
 .banner > .nav > .nav-word {
   width: 100%;
   margin: 0 auto;
   background: white;
   transform: rotate(0deg);
-  padding-top: 1.86666667rem;
+  padding-top: 1rem;
   padding-bottom: 6.66666667rem;
   border-radius: 5px;
   font-family: "微软雅黑";
@@ -83,7 +82,7 @@
 }
 .banner > .nav > .nav-word > p {
   padding: 0 1.86666667rem;
-  font-size: 0.85333333rem;
+  font-size: 1rem;
   letter-spacing: 1px;
 }
 .banner > .nav > .nav-word .dot {
@@ -92,15 +91,14 @@
   color: #636363;
 }
 .banner > .nav > .nav-word > .title {
-  font-size: 0.97333333rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  padding-bottom: 0.93333333rem;
   color: black;
 }
 .banner > .nav > .nav-word > .fontweight {
   font-weight: 700;
   color: #666;
-  padding-top: 1.86666667rem;
+  padding-top: 1.33333333rem;
   padding-bottom: 0.66666667rem;
 }
 .banner > .box {
@@ -110,8 +108,8 @@
 }
 .banner > .box > .footer {
   background: white;
-  padding: 20px 0;
   position: relative;
+  text-align: center;
 }
 .banner > .box > .footer > .guess {
   background: url(../img/shadow.png);
@@ -120,16 +118,8 @@
   position: absolute;
   bottom: 80px;
   left: 0;
+  z-index: -1;
 }
-.banner > .box > .footer > .button {
-  width: 150px;
-  height: 40px;
-  background: red;
-  border-radius: 20px;
-  line-height: 40px;
-  margin: 0 auto;
-}
-.banner > .box > .footer > .button > p {
-  color: white;
-  text-align: center;
+.banner > .box > .footer img {
+  width: 60%;
 }

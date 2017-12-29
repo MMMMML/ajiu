@@ -1,45 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>空降联盟</title>
+    <title>我的权益</title>
 </head>
 <style>
-    *{
+    * {
         margin: 0;
-        padding:0;
+        padding: 0;
     }
-    html{
+
+    html {
         letter-spacing: 1px;
         font-size: 14px;
-        font-family:"微软雅黑";
+        font-family: "微软雅黑";
     }
-    .msg{
+
+    .msg {
         border-bottom: 1px solid #ccc;
     }
-    .msg p{
+
+    .msg p {
         color: #666;
-        padding:10px 5px 10px 15px;
+        padding: 10px 5px 10px 15px;
     }
-    .msg p >span{
+
+    .msg p>span {
         color: black;
     }
-</style>
-<body>
-    <div class="msg">
-        <p>权益人姓名：<span>韩梅梅</span></p>
-        <p>身份证号：<span>424884299409294834</span></p>
-        <p>手机号：<span>13943084759</span></p>
-        <p>会员资格有限期：<span>2017.12.09至2017.12.15</span></p>
-    </div>
 
-    <div class="msg">
-            <p>权益人姓名：<span>韩梅梅</span></p>
-            <p>身份证号：<span>424884299409294834</span></p>
-            <p>手机号：<span>13943084759</span></p>
-            <p>会员资格有限期：<span>2017.12.09至2017.12.15</span></p>
-        </div>
+    .history {
+        width: 65px;
+        height: 65px;
+        background: #646464;
+        border-radius: 50%;
+        position: fixed;
+        right: 5%;
+        bottom: 5%;
+    }
+
+    .history>p {
+        padding-top: 12px;
+        color: white;
+        text-align: center;
+    }
+
+    .none {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <p class="none">暂无数据</p>
+    <div class="box">
+
+
+    </div>
+    <div class="history">
+        <p>历史<br>
+        权益</p>
+    </div>
 </body>
+
 </html>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+
+
+
+
+
+
+    $(function () {
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        var url = location.href;
+
+        var uuid = GetQueryString("uuid");
+        console.log(uuid);
+        if (uuid === null) {
+            window.sessionStorage.setItem("uuid", "");
+        } else {
+            window.sessionStorage.setItem("uuid", uuid);
+        }
+
+        if (window.sessionStorage.getItem("uuid")) {
+            $.ajax({
+                type: "post",
+                url: "http://aj.kingwingaviation.com/jax/retailsys/pay/list",
+                datatype: "json",
+                contentType: "application/json",
+                data: JSON.stringify({ uuid: uuid, qtype: 1 }),
+                success: function (data) {
+                    console.log(data)
+                    var res = data.result;
+                    if (res.length == 0) {
+                        $('.none').css('display', 'block')
+                    }
+                    console.log(res)
+                    var html = '';
+                    for (var i = 0; i < res.length; i++) {
+                        var mine = res[i]
+                        if (mine.pdname == 'travel') mine.pdnamedisaplay = '短期权益'
+                        if (mine.pdname == 'limitFree') mine.pdnamedisaplay = '限时福利'
+                        if (mine.pdname == 'yearCard') mine.pdnamedisaplay = '全年权益'
+                        html +=
+                            '<div class="msg">' +
+                            '<p>权益类别：<span>' + mine.pdnamedisaplay + '</span></p>' +
+                            '<p>权益人姓名：<span>' + mine.realname + '</span></p>' +
+                            '<p>身份证号：<span>' + mine.cardno + '</span></p>' +
+                            ' <p>手机号：<span>' + mine.mobile + '</span></p>' +
+                            '<p>会员资格有限期：<span>' + mine.rt + '</span></p>' +
+                            '</div>'
+
+                    }
+
+
+                    $('.box').html(html);
+                }
+
+            })
+            $('.history').click(function () {
+                $('.none').css('display', 'none')
+                document.head.getElementsByTagName('title')[0].innerText = '历史权益'
+                $.ajax({
+                    type: "post",
+                    url: "http://aj.kingwingaviation.com/jax/retailsys/pay/list",
+                    datatype: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify({ uuid: uuid, qtype: -1 }),
+                    success: function (response) {
+                        var resp = response.result;
+                        console.log(resp.length)
+                        if(resp.length == 0) {
+                            console.log($('.none'))
+                            $('.none').css('display', 'block')
+                        }
+                        console.log(resp)
+                        var str = '';
+                        for (var i = 0; i < resp.length; i++) {
+                            var history = resp[i]
+                            if (history.pdname == 'travel') history.pdnamedisaplay = '短期权益'
+                            if (history.pdname == 'limitFree') history.pdnamedisaplay = '限时福利'
+                            if (history.pdname == 'yearCard') history.pdnamedisaplay = '全年权益'
+                            str +=
+                                '<div class="msg">' +
+                                '<p>权益类别：<span>' + history.pdnamedisaplay + '</span></p>' +
+                                '<p>权益人姓名：<span>' + history.realname + '</span></p>' +
+                                '<p>身份证号：<span>' + history.cardno + '</span></p>' +
+                                ' <p>手机号：<span>' + history.mobile + '</span></p>' +
+                                '<p>会员资格有限期：<span>' + history.rt + '</span></p>' +
+                                '</div>'
+
+                        }
+
+
+                        $('.box').html(str);
+                    }
+
+                })
+            })
+
+
+            $('.shade-btn1').click(function () {
+                var getuuid = window.sessionStorage.getItem("uuid");
+                window.location.href = 'http://aj.kingwingaviation.com/retailsys/research.html';
+                // console.log(s);
+            })
+
+
+        } else {
+            window.location.href =
+                "http://aj.kingwingaviation.com/jax/retailsys/pay/code?state=http://aj.kingwingaviation.com/retailsys/research.html";
+        }
+    });
+
+</script>
