@@ -1,0 +1,171 @@
+body {
+  position: relative;
+}
+.banner {
+  width: 100%;
+  height: 100%;
+  background: url(../img/banner2.png) no-repeat;
+  padding-bottom: 2rem;
+  background-size: 100%;
+  > header > img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  .card > img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  > .nav {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    font-size: 14/75rem;
+    padding-top: 750/75rem;
+    .transform {
+      background: white;
+      width: 100px;
+      height: 20%;
+      position: absolute;
+      top: 780/75rem;
+      right: 0;
+      border-radius: 5px;
+      transform: rotate(-3deg);
+    }
+    .warp {
+      width: 100%;
+      margin: 0 auto;
+      height: 20%;
+      background: #f00121;
+      position: absolute;
+      top: 750/75rem;
+      left: -7px;
+      border-radius: 5px;
+      transform: rotate(-6deg);
+      border: 1px solid #ab000d;
+    }
+    > .nav-word {
+      width: 100%;
+      margin: 0 auto;
+      background: white;
+      transform: rotate(0deg);
+      border-radius: 5px;
+      font-family: "微软雅黑";
+      z-index: 1000;
+      color: #636363;
+      border: 1px solid #dcdcdc;
+      box-shadow: 1px 1px 1px #dcdcdc;
+      
+      input {
+        margin-top: 75/75rem;
+        height: 120/75rem;
+        border-radius: 15px;
+        width: 100%;
+        padding-left: 0.5rem;
+        background: none;
+        outline: none;
+        border: 1px solid #ccc;
+        color: #707070;
+      }
+
+      .identity {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #707070;
+        > .input1 {
+          width: 40%;
+          color: #707070;
+        }
+        > .input2 {
+          width: 40%;
+          margin-left: 5%;
+          color: #707070;
+        }
+
+        > .input3 {
+          width: 90%;
+          color: #707070;
+        }
+        > .input4 {
+          width: 90%;
+          color: #707070;
+        }
+        #showDate {
+          display: inline-block;
+          width: 40%;
+          height: 120/75rem;
+          border: 1px solid #ccc;
+          border-radius: 15px;
+          margin: 1rem auto;
+          text-align: left;
+          line-height: 120/75rem;
+          padding-left: 0.5rem;
+          font-size: 12px;
+          color: #707070;
+        }
+        #showDate1 {
+            display: inline-block;
+            width: 40%;
+            height: 120/75rem;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            margin: 1rem auto;
+            text-align: left;
+            line-height: 120/75rem;
+            padding-left: 0.5rem;
+            font-size: 12px;
+            margin-left: 0.4rem;
+            color: #707070;
+          }
+      }
+      > .agree {
+        padding: 0 1rem 1rem 1rem;
+        font-size: 14px;
+        position: relative;
+
+        > input {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: -1rem;
+          left: 1rem;
+          right: 0;
+          bottom: 0;
+        }
+        span {
+          color: red;
+          font-weight: 700;
+          letter-spacing: 2px;
+        }
+      }
+      > .button {
+        text-align: center;
+         img {
+          width: 75%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .banner {
+    padding-bottom: 109px;
+  }
+  .nav-word {
+    padding: 1rem 0;
+  }
+  .agree {
+    margin-top: 20px;
+  }
+  .warp-btn {
+    top: 20rem !important;
+  }
+}

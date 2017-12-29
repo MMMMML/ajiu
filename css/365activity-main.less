@@ -1,0 +1,111 @@
+.banner {
+  width: 100%;
+  height: 100%;
+  background: url(../img/banner3.png) no-repeat;
+  padding-bottom: 2rem;
+  background-size: 100%;
+  > header > img {
+    width: 100%;
+    height: 100%;
+  }
+  .word {
+    text-align: center;
+    > img {
+      width: 90%;
+      margin-top: 10px;
+    }
+  }
+  .card {
+    text-align: center;
+    > img {
+      width: 90%;
+      margin-top: 10px;
+    }
+  }
+
+  > .nav {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    font-size: 14/75rem;
+    padding-top: 2rem;
+    .transform {
+      background: white;
+      width: 100px;
+      height: 10%;
+      position: absolute;
+      top: 10.4rem;
+      right: -7%;
+      border-radius: 5px;
+      transform: rotate(-3deg);
+    }
+    .warp {
+      width: 100%;
+      margin: 0 auto;
+      height: 10%;
+      background: #053653;
+      position: absolute;
+      top: 2rem;
+      left: -4px;
+      border-radius: 5px;
+      transform: rotate(-5deg);
+    }
+    > .nav-word {
+      width: 100%;
+      margin: 0 auto;
+      background: white;
+      transform: rotate(0deg);
+      border-radius: 5px;
+      font-family: "微软雅黑";
+      z-index: 1000;
+      color: #636363;
+      border: 1px solid #dcdcdc;
+      box-shadow: 1px 1px 1px #dcdcdc;
+      text-align: center;
+      > img {
+        width: 95%;
+        margin: 10px 0;
+      }
+      p {
+        color: #9f9f9f;
+        padding: 5px 0;
+      }
+    }
+    > .mes {
+      color: #59513e;
+      letter-spacing: 1px;
+      margin: 25px 0;
+      font-size: 14px;
+      > .title {
+        font-weight: 700;
+        padding-top: 10px;
+      }
+      > .pd5 {
+        padding: 2px 0;
+      }
+    }
+    > .box {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      > .footer {
+        background: white;
+        position: relative;
+        text-align: center;
+        > .guess {
+          background: url(../img/shadow.png);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          bottom: 80px;
+          left: 0;
+          z-index: -1;
+        }
+        
+      }
+    }
+  }
+}

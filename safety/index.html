@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="full-screen" content="true">
+	<meta name="screen-orientation" content="portrait">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="360-fullscreen" content="true">
+    
+    <script type="text/javascript" src="js/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.js"></script>
+
+    <link rel="stylesheet" href="css/jquery.mobile.css?v=4343">
+    <link rel="stylesheet" href="css/style.css?v=43433">
+    <title>空降联盟</title>
+    <style>
+        .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page {
+            height:100%;
+        }
+        #pageone, #page20, #pagethree, #pagefour, #pageblack, #pagefive, #pageover {
+            width:100%;height:100%;
+        }
+            #pageover img {
+                width:100%;
+            }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div data-role="page" id="pageone" date-dom-cache="true">
+            <div class="load-box load">
+                <div class="text"><span id="number">0%</span> </div>
+                <!--<div class="heart">
+                    <img src="img/heart1.png"></div>
+                <div class="tag">
+                    <img src="img/tag.png"></div>-->
+
+                <p class="line-1"><span class="hide span_1">川流不息的高速公路，</span><span class="span_2 hide">揭开假日出行的序幕，</span></p>
+                <p class="line-2"><span class="span_1 hide">一路欢声笑语的沿途，</span><span class="span_2 hide">却，也可能。。。</span></p>
+                <a class="start hide" href="javascript:void(0);" rel="extrenal" data-ajax="false" date-transition="fade">
+                    <img src="img/start.png"></a>
+            </div>
+        </div>
+        <div data-role="page" id="page20" class="">
+            <div><!-- x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;"-->
+                <video id="mvideo" class="video1" webkit-playsinline="true" x-webkit-airplay="true" playsinline  x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;"   >
+                    <source src="img/s1.mp4" type="video/mp4"></source>
+                </video>
+            </div>
+
+        </div>
+
+        <div data-role="page" id="pagethree" class="main_third">
+            <div class="btn-box">
+                <img class="btn_on" src="img/btn_on.png">
+                <img class="btn" src="img/btn.png">
+            </div>
+            <div class="count-down right-count">
+                <ul>
+                    <li class="count_0 count">
+                        <img now="2" src="img/2.png">
+                    </li>
+                    <li class="count_1 count">
+                        <img now="4" src="img/4.png">
+                    </li>
+                    <li class="symbol">
+                        <img src="img/symbol.png">
+                    </li>
+                    <li class="count_2 count">
+                        <img now="0" src="img/0.png">
+                    </li>
+                    <li class="count_3 count">
+                        <img now="0" src="img/0.png">
+                    </li>
+                    <li class="symbol">
+                        <img src="img/symbol.png">
+                    </li>
+                    <li class="count_4 count">
+                        <img now="0" src="img/0.png">
+                    </li>
+                    <li class="count_5 count">
+                        <img now="0" src="img/0.png">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="pagefour">
+            <div>
+
+                <video id="mvideo2" class="video2" webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;" >
+                    <source src="img/s2.mp4" type="video/mp4"></source>
+                </video>
+            </div>
+        </div>
+        <div data-role="page" id="pageblack" style="background-color: #000">
+        </div>
+        <div data-role="page" id="pagefive">
+            <div class="bg_3">
+                <img class="die hide" src="img/text.png">
+                <a href="javascrip:void(0);" class="again hide">
+                    <img src="img/again.png"></a>
+
+            </div>
+
+        </div>
+        <div data-role="page" id="pageover">
+            <img class="" style="width: 100%;height:100%;" src="img/bg4.jpg">
+        </div>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    document.querySelector('body').addEventListener('touchstart', function (ev) {
+        event.preventDefault();
+    });
+    var flag = 1;
+    var video = document.getElementById("mvideo");
+    video.controls = false;
+
+    var t = 0;
+    timer1 = window.setInterval(function () {
+        if (t == 0) {
+            $('.line-1 .span_1').addClass('show')
+        }
+        if (t == 1) {
+            $('.line-1 .span_2').addClass('show')
+        }
+        if (t == 2) {
+            $('.line-2 .span_1').addClass('show')
+        }
+        if (t == 3) {
+            $('.line-2 .span_2').addClass('show')
+        }
+        t++;
+        if (t == 5 && flag == 0) {
+            $(".start").animate({ opacity: 1 }, 400);
+            clearInterval(timer1)
+        }
+        // console.log(t)
+    }, 800);
+
+    var time_array = {
+        '0': 'img/0.png',
+        '1': 'img/1.png',
+        '2': 'img/2.png',
+        '3': 'img/3.png',
+        '4': 'img/4.png',
+        '5': 'img/5.png',
+        '6': 'img/6.png',
+        '7': 'img/7.png',
+        '8': 'img/8.png',
+        '9': 'img/9.png',
+
+    };
+    var timer;
+    function count_down() {
+        var count_0 = $('.count_0').find('img').attr('now');
+        var count_1 = $('.count_1').find('img').attr('now');
+        var count_2 = $('.count_2').find('img').attr('now');
+        var count_3 = $('.count_3').find('img').attr('now');
+        var count_4 = $('.count_4').find('img').attr('now');
+        var count_5 = $('.count_5').find('img').attr('now');
+
+
+        var minutes = count_0 + '' + count_1;
+        var seconds = count_2 + '' + count_3;
+        var min_seconds = count_4 + '' + count_5;
+
+        minute = Math.floor(minutes),
+        second = Math.floor(seconds);//时间默认值  
+        min_seconds = Math.floor(min_seconds);//时间默认值  
+        intDiff = minute * 60;
+        var c = 0;
+        timer = window.setInterval(function () {
+            c++;
+            if (intDiff > 0) {
+                minute = Math.floor(intDiff / 60);
+
+                second = Math.floor(intDiff - (minute * 60));
+                min_seconds = Math.floor(second + 1);
+            }
+
+            console.log(min_seconds)
+            count = {}
+            if (minute <= 9) {
+                count[1] = minute;
+                minute = '0' + minute;
+                count[0] = '0'
+
+            } else {
+                minute_string = minute + '';
+                count[0] = minute_string.substr(0, 1)
+                count[1] = minute_string.substr(1, 1)
+            }
+
+            if (second <= 9) {
+                second = '0' + second;
+                count[2] = '0'
+                count[3] = second;
+            } else {
+                second_string = second + '';
+                count[2] = second_string.substr(0, 1)
+                count[3] = second_string.substr(1, 1)
+            }
+
+            if (min_seconds <= 9) {
+                count[4] = min_seconds;
+                min_seconds = '0' + min_seconds;
+                count[5] = '0'
+
+            } else {
+                min_seconds_string = min_seconds + '';
+                count[4] = min_seconds_string.substr(0, 1)
+                count[5] = min_seconds_string.substr(1, 1)
+            }
+            // console.log(minute+':'+second)
+            // console.log(second)
+            intDiff--;
+            if (intDiff < 0) {
+
+                minute = '00';
+                second = '00'
+                min_seconds = '00'
+                window.clearInterval(timer)
+                $.mobile.changePage('#pageblack', 'fade');
+
+                wait();
+
+
+            }
+            for (var i = 0; i < 6 ; i++) {
+
+                set_time(i, count[i]);
+            }
+
+            if (c % 26 == 13) {
+                if ($('.btn').hasClass('show')) {
+                    $('.btn').addClass('hide').removeClass('show')
+                } else {
+                    $('.btn').addClass('show').removeClass('hide')
+
+                }
+            }
+
+        }, 1);
+    }
+
+    $(function () {
+        $('.btn').on('touchstart', function () {
+
+            window.clearInterval(timer)
+
+            $.mobile.changePage('#pagefour', 'fade');
+            $('.video2').trigger('play');
+        })
+    })
+
+    function wait() {
+
+        setTimeout(function () {
+            $.mobile.changePage('#pagefive', 'fade');
+            $('.die').addClass('show')
+            $('.again').addClass('show')
+        }, 2000);
+
+    }
+    $('.again').on('touchstart', function () {
+        // window.location.hash = "";
+        // location.reload()
+        $.mobile.changePage('#pagefour', 'fade');
+        $('.video2').trigger('play');
+
+    })
+    function set_time(index, num) {
+        $('.count_' + index).find('img').attr('now', num)
+        img = time_array[num];
+        $('.count_' + index).find('img').attr('src', img);
+    }
+
+    $('.video1').on('ended', function () {
+
+        $.mobile.changePage('#pagethree', 'fade');
+
+        count_down();
+    })
+
+    $('.video2').on('ended', function () {
+
+        $.mobile.changePage('#pageover', 'fade');
+
+    })
+
+    /**
+     * 视频全屏播放旋转目前的逻辑
+     * 视频全屏，即锁定屏幕为横屏。
+     * 视频恢复，则解除屏幕方向的锁定。
+     * 具体的切换，根据自己的实际业务做相应的操作。
+     */
+    // Android平台的视频全屏旋转
+    var fullScreenOfAndroid = function () {
+        if (true) {
+            // 最新5+API的支持
+            var self = plus.webview.currentWebview();
+            self.setStyle({
+                videoFullscreen: 'landscape'
+            });
+        } else {
+            // 如果暂未更新sdk，可以先使用差量升级等方式，做出兼容处理；
+            // 旧版本下的兼容处理
+            document.addEventListener('webkitfullscreenchange', function () {
+                var el = document.webkitFullscreenElement; //获取全屏元素
+                if (el) {
+                    plus.screen.lockOrientation('landscape'); //锁死屏幕方向为横屏
+                } else {
+                    plus.screen.unlockOrientation(); //解除屏幕方向的锁定
+                }
+            });
+
+        }
+    };
+    // iOS平台的视频全屏旋转
+    var fullScreenOfIos = function (videoElem) {
+        // 监听的事件与Android平台有很大区别
+        videoElem.addEventListener('webkitbeginfullscreen', function () {
+            plus.screen.lockOrientation('landscape'); //锁死屏幕方向为横屏
+        });
+        videoElem.addEventListener('webkitendfullscreen', function () {
+            plus.screen.unlockOrientation(); //解除屏幕方向的锁定
+        });
+    };
+    // 涉及到5+API的内容，均在plusready事件后调用；
+    document.addEventListener('plusready', function () {
+        var osName = plus.os.name;
+        if (osName === 'Android') {
+            fullScreenOfAndroid();
+        } else if (osName === 'iOS') {
+            var videoElem = document.getElementById('video');
+            fullScreenOfIos(videoElem);
+        }
+    });
+    $('.start').on('tap', function () {
+        $.mobile.changePage('#page20', 'fade');
+        $('.video1').trigger('play');
+    })
+    $(function () {
+        window.addEventListener("popstate", function (e) {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                WeixinJSBridge.call('closeWindow');
+            }
+        }, false);
+    });
+</script>
+<script type="text/javascript" src="js/loading.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/wxshare.js"></script>
