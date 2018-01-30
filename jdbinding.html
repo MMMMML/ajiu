@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>京东权益</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/jdbinding.css">
+    <link rel="stylesheet" href="js/iosselect/src/iosSelect.css">
+    <link rel="stylesheet" href="js/mobileSelect/css/mobileSelect.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?b25bf95dd99f58452db28b1e99a1a46f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+
+    <div class="banner">
+        <header>
+            <img src="img/top.png" alt="">
+        </header>
+        <div class="card">
+            <img src="img/card7.png" alt="">
+        </div>
+
+
+        <div class="nav">
+            <div class="warp"></div>
+            <div class="transform"></div>
+            <div class="nav-word">
+                <div class="identity">
+                    <input class="input1" type="text" placeholder="姓名">
+                    <input class="input2" type="text" placeholder="手机号">
+                    
+                    <div class="arrows">
+                        <div id="trigger1">身份证</div>
+                        <img class="up-arrow" src="img/up.png" alt="">
+                    </div>
+                    <input class="input3" type="text" id="trigger2">
+                    <input class="input4" type="text"  placeholder="请输入验证码">
+                    <!-- <button class="verification">获取验证码</button> -->
+                    <button type="button" class="verification">获取验证码</button>
+                </div>
+                <div class="button">
+                    <img  src="img/verification.png" alt="">
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <div class="shade">
+        <div class="shade-img2">
+                <img class="close" src="img/close.png" alt="">
+                <button class="shade-btn1">权益查询</button>
+                <a href="jdfinancial.html"><button class="shade-btn2">再次领取</button></a>   
+           
+        </div>
+        <!-- <img src="img/success.png" alt=""> -->
+
+    </div>
+
+    <script type="text/javascript" src="js/mta.js"></script>
+</body>
+<script src="js/iosselect/demo/datepicker/zepto.js"></script>
+<script src="js/iosselect/src/iosSelect.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/jdbinding.js"></script>
+<!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
+<script src="js/mobileSelect/js/mobileSelect.min.js"></script>
+
+<script>   
+
+
+    ; (function (doc, win, undefined) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (clientWidth === undefined) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+            };
+        if (doc.addEventListener === undefined) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false)
+    })(document, window);
+</script>
+
+</html>

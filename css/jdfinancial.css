@@ -1,0 +1,205 @@
+body {
+  position: relative;
+}
+.banner {
+  width: 100%;
+  height: 100%;
+  background: url(../img/banner4.png) no-repeat;
+  padding-bottom: 2rem;
+}
+.banner > header > img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.banner .card > img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.banner > .nav {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  border-radius: 5px;
+  font-size: 0.18666667rem;
+  padding-top: 10rem;
+}
+.banner > .nav .transform {
+  background: #353538;
+  width: 100px;
+  height: 20%;
+  position: absolute;
+  top: 10.4rem;
+  right: 1%;
+  border-radius: 5px;
+  transform: rotate(-3deg);
+}
+.banner > .nav .warp {
+  width: 100%;
+  margin: 0 auto;
+  height: 20%;
+  background: #f00121;
+  position: absolute;
+  top: 10rem;
+  left: -7px;
+  border-radius: 5px;
+  transform: rotate(-6deg);
+}
+.banner > .nav > .nav-word {
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  transform: rotate(0deg);
+  border-radius: 5px;
+  font-family: "微软雅黑";
+  z-index: 1000;
+  color: #636363;
+}
+.banner > .nav > .nav-word input {
+  margin-top: 1rem;
+  height: 1.6rem;
+  border-radius: 15px;
+  width: 100%;
+  padding-left: 0.5rem;
+  background: none;
+  outline: none;
+  border: 1px solid #ccc;
+  color: #707070;
+}
+.banner > .nav > .nav-word .identity {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #999999;
+}
+.banner > .nav > .nav-word .identity > .input1 {
+  width: 40%;
+  color: #707070;
+}
+.banner > .nav > .nav-word .identity > .input2 {
+  width: 40%;
+  margin-left: 5%;
+  color: #707070;
+}
+.banner > .nav > .nav-word .identity > .input3 {
+  width: 90%;
+  color: #707070;
+}
+.banner > .nav > .nav-word .identity > .input4 {
+  width: 90%;
+  color: #707070;
+}
+.banner > .nav > .nav-word .identity #showDate {
+  display: block;
+  width: 90%;
+  height: 1.6rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  margin: 1rem auto;
+  text-align: left;
+  line-height: 1.6rem;
+  padding-left: 0.5rem;
+  font-size: 12px;
+  color: #707070;
+  position: relative;
+}
+.banner > .nav > .nav-word > .agree {
+  padding: 0 1rem 1rem 1rem;
+  font-size: 14px;
+  position: relative;
+}
+.banner > .nav > .nav-word > .agree .checkbox-wrap {
+  position: relative;
+  margin: 0 auto;
+  top: 30%;
+  height: 40%;
+  background-color: white;
+}
+.banner > .nav > .nav-word > .agree input[type="checkbox"] {
+  /* width: 40px; */
+  /* height: 40px; */
+  /* -webkit-border-radius: 50%; */
+  display: none;
+}
+.banner > .nav > .nav-word > .agree input[type="checkbox"] + label {
+  display: inline-block;
+  text-align: left;
+  box-sizing: border-box;
+}
+.banner > .nav > .nav-word > .agree label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #eee;
+  vertical-align: middle;
+  border-radius: 5px;
+  margin-right: 5px;
+  box-sizing: border-box;
+  transition: background ease-in 0.2s;
+  position: absolute;
+  top: -1px;
+}
+.banner > .nav > .nav-word > .agree input[type="checkbox"]:checked + label::before {
+  background-color: #5a5a5a;
+  border: 3px #eeeeee solid;
+}
+.banner > .nav > .nav-word > .agree > input {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -1rem;
+  left: 1rem;
+  right: 0;
+  bottom: 0;
+  font-size: 16px;
+}
+.banner > .nav > .nav-word > .agree span {
+  color: red;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.banner > .nav > .nav-word > .button {
+  text-align: center;
+}
+.banner > .nav > .nav-word > .button > img {
+  width: 75%;
+}
+.shade {
+  width: 100%;
+  height: 100%;
+  background: url(../img/banner6.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none ;
+}
+.shade > .shade-img {
+  background: url(../img/final.png) no-repeat;
+  width: 100%;
+  height: 58%;
+  background-size: contain;
+  position: absolute;
+  top: 8%;
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .banner {
+    padding-bottom: 109px;
+  }
+  .nav-word {
+    padding: 1rem 0;
+  }
+  .agree {
+    margin-top: 20px;
+  }
+  .warp-btn {
+    top: 20rem !important;
+  }
+}

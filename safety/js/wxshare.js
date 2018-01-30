@@ -19,13 +19,14 @@ var dataShare = {
 setWeiXinShare(dataShare);
 
 function setWeiXinShare(dataShare) {
-    var jsurl =  window.location.href;
+    var jsurl =  encodeURIComponent(location.href.split('#')[0]);
 
     $.ajax({
         type: 'get',
-        data: {url:jsurl },
+        data: {url:jsurl,share:1},
         url: dataShare.dataUrl,
         success: function (data) {
+            
             var result = JSON.parse(data.result);
             // console.log(result);
             var appId = result.appId;

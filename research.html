@@ -65,17 +65,13 @@
         <p>历史<br>
         权益</p>
     </div>
+    <script type="text/javascript" src="js/mta.js"></script>
 </body>
 
 </html>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
-
-
-
-
-
-
     $(function () {
         function GetQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -87,7 +83,6 @@
         var url = location.href;
 
         var uuid = GetQueryString("uuid");
-        console.log(uuid);
         if (uuid === null) {
             window.sessionStorage.setItem("uuid", "");
         } else {
@@ -102,25 +97,36 @@
                 contentType: "application/json",
                 data: JSON.stringify({ uuid: uuid, qtype: 1 }),
                 success: function (data) {
-                    console.log(data)
+                   
+
+
                     var res = data.result;
                     if (res.length == 0) {
                         $('.none').css('display', 'block')
                     }
-                    console.log(res)
+                   
                     var html = '';
                     for (var i = 0; i < res.length; i++) {
                         var mine = res[i]
+                        mine.people = "会员资格有限期"
                         if (mine.pdname == 'travel') mine.pdnamedisaplay = '短期权益'
                         if (mine.pdname == 'limitFree') mine.pdnamedisaplay = '限时福利'
                         if (mine.pdname == 'yearCard') mine.pdnamedisaplay = '全年权益'
+                        if (mine.pdname == 'limitFree10') {
+                            mine.pdnamedisaplay = '京东权益'
+                            mine.people = "权益资格有效期"
+                        }
+                        if (mine.card_type == '1') mine.cardType = '身份证'
+                        if (mine.card_type == '2') mine.cardType = '护照'
+                        if (mine.card_type == '3') mine.cardType = '回乡证'
+                        if (mine.card_type == '4') mine.cardType = '台胞证'
                         html +=
                             '<div class="msg">' +
                             '<p>权益类别：<span>' + mine.pdnamedisaplay + '</span></p>' +
                             '<p>权益人姓名：<span>' + mine.realname + '</span></p>' +
-                            '<p>身份证号：<span>' + mine.cardno + '</span></p>' +
+                            '<p>'+ mine.cardType + '：<span>' + mine.cardno + '</span></p>' +       
                             ' <p>手机号：<span>' + mine.mobile + '</span></p>' +
-                            '<p>会员资格有限期：<span>' + mine.rt + '</span></p>' +
+                            '<p>'+ mine.people + '：<span>' + mine.rt + '</span></p>' +
                             '</div>'
 
                     }
@@ -183,6 +189,56 @@
             window.location.href =
                 "http://aj.kingwingaviation.com/jax/retailsys/pay/code?state=http://aj.kingwingaviation.com/retailsys/research.html";
         }
+
+var dataShare = {
+    dataUrl: "http://aj.kingwingaviation.com/jax/retailsys/pay/getJSApiTicket",
+};
+setWeiXinShare(dataShare);
+
+function setWeiXinShare(dataShare) {
+    var jsurl =  encodeURIComponent(location.href.split('#')[0]);
+
+    $.ajax({
+        type: 'get',
+        data: {url:jsurl},
+        url: dataShare.dataUrl,
+        success: function (data) {
+            var result = JSON.parse(data.result);
+            var appId = result.appId;
+            var timeStamp = result.timeStamp;
+            var nonceStr = result.nonceStr;
+            var signature = result.signature;
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: appId, // 必填，公众号的唯一标识
+                timestamp: timeStamp, // 必填，生成签名的时间戳
+                nonceStr:nonceStr, // 必填，生成签名的随机串
+                signature: signature,// 必填，签名，见附录1
+                jsApiList: ['hideOptionMenu', 'onMenuShareTimeline', 'onMenuShareAppMessage','hideMenuItems'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+
+            wx.ready(function () {
+                // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+           
+                //隐藏操作菜单
+                wx.hideOptionMenu();
+
+
+            //     wx.hideMenuItems({
+            //         menuList: ['menuItem:share:qq',
+            //                    'menuItem:share:weiboApp',
+            //                    'menuItem:favorite',
+            //                    'menuItem:share:facebook',
+            //                    'menuItem:share:QZone'], 
+            // });
+            });
+
+            wx.error(function (res) {
+                //alert(res.errMsg);  //打印错误消息。及把 debug:false,设置为debug:ture就可以直接在网页上看到弹出的错误提示
+            });
+        }
+    });
+}
     });
 
 </script>

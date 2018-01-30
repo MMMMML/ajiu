@@ -5,55 +5,99 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="full-screen" content="true">
-	<meta name="screen-orientation" content="portrait">
-	<meta name="x5-fullscreen" content="true">
-	<meta name="360-fullscreen" content="true">
-    
-    <script type="text/javascript" src="js/jquery-2.2.0.js"></script>
+    <meta name="full-screen" content="true">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="360-fullscreen" content="true">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+   <script type="text/javascript" src="js/jquery-2.2.0.js"></script>
     <script type="text/javascript" src="js/jquery.mobile.js"></script>
+    <script type="text/javascript" src="js/video/video.min.js"></script>
 
-    <link rel="stylesheet" href="css/jquery.mobile.css?v=4343">
-    <link rel="stylesheet" href="css/style.css?v=43433">
+    <link rel="stylesheet" href="css/jquery.mobile.css?v=4">
+    <link rel="stylesheet" href="css/style.css?v=4">
     <title>空降联盟</title>
     <style>
+        .ui-mobile, .ui-mobile body {
+            height:100%;
+        }
         .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page {
             height:100%;
         }
         #pageone, #page20, #pagethree, #pagefour, #pageblack, #pagefive, #pageover {
-            width:100%;height:100%;
+            width:108%;height:100%;
         }
             #pageover img {
                 width:100%;
             }
+
+        #lock {
+            position:absolute;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            background:url(img/lock.jpeg) no-repeat;
+            background-size:100% 100%;
+            z-index: 9999;
+
+        }
+            #lock span {
+                display:none;
+                position:absolute;
+                top:30px;
+                left:30px;
+
+
+            }
     </style>
 </head>
 <body>
+
+    <div id="lock" class="turn">
+      <span>3</span>
+    </div>
     <div class="main">
-        <div data-role="page" id="pageone" date-dom-cache="true">
+
+        <div data-role="page" id="pageone" class="just" date-dom-cache="true">
             <div class="load-box load">
-                <div class="text"><span id="number">0%</span> </div>
+
+
                 <!--<div class="heart">
                     <img src="img/heart1.png"></div>
                 <div class="tag">
                     <img src="img/tag.png"></div>-->
-
+                <img src="img/_bg_1.gif" style="position:absolute;width:100%;    object-fit:fill;top:-26px;background-color:#000">
+                 <div class="text"><span id="number">0%</span> </div>
                 <p class="line-1"><span class="hide span_1">川流不息的高速公路，</span><span class="span_2 hide">揭开假日出行的序幕，</span></p>
                 <p class="line-2"><span class="span_1 hide">一路欢声笑语的沿途，</span><span class="span_2 hide">却，也可能。。。</span></p>
                 <a class="start hide" href="javascript:void(0);" rel="extrenal" data-ajax="false" date-transition="fade">
                     <img src="img/start.png"></a>
+
             </div>
         </div>
-        <div data-role="page" id="page20" class="">
-            <div><!-- x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;"-->
-                <video id="mvideo" class="video1" webkit-playsinline="true" x-webkit-airplay="true" playsinline  x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;"   >
-                    <source src="img/s1.mp4" type="video/mp4"></source>
+
+        <div  id="page20" data-role="page" class="just" style="background-color: #000;">
+            <div class="vid-wrapper" style="overflow:hidden" ><!-- x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;"-->
+                <!-- <div class="hide" style="opacity:0;width:100%;height:100%"></div> -->
+                <!-- <video id="mvideo" preload="auto" width="375" height="200" class="video1" webkit-playsinline="true" webkit-playsinline x-webkit-airplay="true" playsinline playsinline="true"  x5-video-player-type="h5" preload="auto" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;"   > -->
+                <video id="mvideo" preload="auto" class="video "  width="375" height="200" type='video/mp4' webkit-playsinline="true" webkit-playsinline playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;" >
+                    <source src="img/s0.mp4" type="video/mp4" ></source>
                 </video>
             </div>
 
         </div>
+        <div data-role="page" id="pagethree"  class="main_third just">
+            <img src="img/bkg_2.jpg" style="position:absolute;width:100%;    object-fit:fill;">
 
-        <div data-role="page" id="pagethree" class="main_third">
+        <!-- <audio id="audio1" class="hide" preload="auto" src="img/1.mp3"></audio> -->
+            <audio id="audio1" class="hide" preload="auto" >
+
+                    <source src="img/1.wav" type="audio/mpeg">
+
+                </audio>
             <div class="btn-box">
                 <img class="btn_on" src="img/btn_on.png">
                 <img class="btn" src="img/btn.png">
@@ -61,10 +105,10 @@
             <div class="count-down right-count">
                 <ul>
                     <li class="count_0 count">
-                        <img now="2" src="img/2.png">
+                        <img now="1" src="img/1.png">
                     </li>
                     <li class="count_1 count">
-                        <img now="4" src="img/4.png">
+                        <img now="0" src="img/0.png">
                     </li>
                     <li class="symbol">
                         <img src="img/symbol.png">
@@ -87,61 +131,108 @@
                 </ul>
             </div>
         </div>
-        <div data-role="page" id="pagefour">
-            <div>
+        <div data-role="page" id="pagefour" class="just" style="background-color: #000;">
+            <div class="vid-wrapper" style="overflow:hidden">
+                <!-- <audio  class="hide" preload="auto" src="img/2.mp3"></audio> -->
 
-                <video id="mvideo2" class="video2" webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;" >
+
+
+                <video id="mvideo2" preload="auto" class="video2 "  width="375" height="200" type='video/mp4' webkit-playsinline="true" webkit-playsinline playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit:fill;" >
                     <source src="img/s2.mp4" type="video/mp4"></source>
                 </video>
+                <audio id="audio2" class="hide" style="width:0;height:0" preload="auto" >
+
+                    <source src="img/2.mp3" type="audio/mpeg">
+
+                </audio>
             </div>
         </div>
-        <div data-role="page" id="pageblack" style="background-color: #000">
-        </div>
-        <div data-role="page" id="pagefive">
+        <!--<div data-role="page" id="pageblack" style="background-color: #000">
+        </div>-->
+        <div data-role="page" id="pagefive" class="just">
             <div class="bg_3">
-                <img class="die hide" src="img/text.png">
-                <a href="javascrip:void(0);" class="again hide">
+                <img src="img/bg_3.jpg" style="position:absolute;width:100%;    object-fit:fill;">
+
+                <img class="die hide" src="img/text3.png">
+                <a href="javascrip:void(0);" class="again">
                     <img src="img/again.png"></a>
 
             </div>
 
         </div>
-        <div data-role="page" id="pageover">
-            <img class="" style="width: 100%;height:100%;" src="img/bg4.jpg">
-        </div>
 
+        <!-- <div id="pageover" data-role="page" class="just">
+            <img class=""  src="img/bg4.jpg" style="position:absolute;width:98%;height:100%">
+            <img src="./img/plan.png" style="position:absolute;width:50%;left:10px;top:0;">
+            <a href="http://www.baidu.com"><img src="img/code.png" class="code"  style="position:absolute;left:100px;top:20%;width:24%;"></a>
+
+            <img src="./img/text.png"  style="position:absolute;right:79px;top:100px;width:40%;">
+        </div> -->
     </div>
+
 </body>
 </html>
 <script type="text/javascript">
+
+
+
+    var myPlayer = videojs('mvideo', { 'fluid': true,"isFullscreen":true,"width":$(window).height(),'description':'',});
+    var myPlayer2 = videojs('mvideo2', { 'fluid': true ,"isFullscreen":true,"width":$(window).height(),'description':'' });
+    var audio = videojs('audio1');
+    // var audio = document.getElementById('audio1');
+    var audio2 = document.getElementById('audio2');
+
+
+    var start_falg = 0;
+    var turnWidth = window.screen.height*0.8;
+    var turnHeight =  window.screen.width;
+    // alert(turnWidth)
+    // alert(turnHeight)
+    // $('.just').css({width:turnHeight*2})
+    // $('.just').css({height:turnWidth*2})
+
+     // var code_width = $('.code').css({width:turnWidth});
+     // var code_width = $('.code').css({"margin-left":-turnWidth/2});
+     // var code_width = $('.code').css({"margin-top":turnHeight});
+    // console.log(code_width)
+
+
     document.querySelector('body').addEventListener('touchstart', function (ev) {
         event.preventDefault();
     });
     var flag = 1;
     var video = document.getElementById("mvideo");
+    var video2 = document.getElementById("mvideo2");
     video.controls = false;
+    video2.controls = false;
 
     var t = 0;
-    timer1 = window.setInterval(function () {
-        if (t == 0) {
-            $('.line-1 .span_1').addClass('show')
-        }
-        if (t == 1) {
-            $('.line-1 .span_2').addClass('show')
-        }
-        if (t == 2) {
-            $('.line-2 .span_1').addClass('show')
-        }
-        if (t == 3) {
-            $('.line-2 .span_2').addClass('show')
-        }
-        t++;
-        if (t == 5 && flag == 0) {
-            $(".start").animate({ opacity: 1 }, 400);
-            clearInterval(timer1)
-        }
-        // console.log(t)
-    }, 800);
+
+    function count_time(){
+        timer1 = window.setInterval(function () {
+            if (t == 0) {
+                $('.line-1 .span_1').addClass('show')
+            }
+            if (t == 1) {
+                $('.line-1 .span_2').addClass('show')
+            }
+            if (t == 2) {
+                $('.line-2 .span_1').addClass('show')
+            }
+            if (t == 3) {
+                $('.line-2 .span_2').addClass('show')
+            }
+            t++;
+            if (t > 5 && flag == 0) {
+                start_falg = 1
+                $(".start").animate({ opacity: 1 }, 400);
+                clearInterval(timer1)
+            }
+            // console.log(t)
+        }, 800);
+    }
+
+
 
     var time_array = {
         '0': 'img/0.png',
@@ -156,6 +247,19 @@
         '9': 'img/9.png',
 
     };
+
+    // var player = $('#mvideo');if (player.webkitSupportsFullscreen) {
+    //     player.webkitEnterFullscreen();
+    // } else {
+    //    player.webkitRequestFullScreen();
+    // }
+
+    // var player = $('#mvideo2');if (player.webkitSupportsFullscreen) {
+    //     player.webkitEnterFullscreen();
+    // } else {
+    //    player.webkitRequestFullScreen();
+    // }
+
     var timer;
     function count_down() {
         var count_0 = $('.count_0').find('img').attr('now');
@@ -171,8 +275,8 @@
         var min_seconds = count_4 + '' + count_5;
 
         minute = Math.floor(minutes),
-        second = Math.floor(seconds);//时间默认值  
-        min_seconds = Math.floor(min_seconds);//时间默认值  
+        second = Math.floor(seconds);//时间默认值
+        min_seconds = Math.floor(min_seconds);//时间默认值
         intDiff = minute * 60;
         var c = 0;
         timer = window.setInterval(function () {
@@ -184,7 +288,7 @@
                 min_seconds = Math.floor(second + 1);
             }
 
-            console.log(min_seconds)
+            //console.log(min_seconds)
             count = {}
             if (minute <= 9) {
                 count[1] = minute;
@@ -226,7 +330,7 @@
                 second = '00'
                 min_seconds = '00'
                 window.clearInterval(timer)
-                $.mobile.changePage('#pageblack', 'fade');
+                //$.mobile.changePage('#pageblack', 'fade');
 
                 wait();
 
@@ -236,7 +340,7 @@
 
                 set_time(i, count[i]);
             }
-
+            //console.log("c="+c);
             if (c % 26 == 13) {
                 if ($('.btn').hasClass('show')) {
                     $('.btn').addClass('hide').removeClass('show')
@@ -249,50 +353,109 @@
         }, 1);
     }
 
+    function showlock() {
+        var v = $('#lock').find('span').html();
+        v--;
+        $('#lock').find('span').html(v);
+        if (v == 0) {
+            $('#lock').remove()
+            count_time()
+        }
+        else {
+            setTimeout("showlock()", 1000);
+        }
+    }
     $(function () {
+
+        showlock();
+
         $('.btn').on('touchstart', function () {
-
-            window.clearInterval(timer)
-
+            window.clearInterval(timer);
             $.mobile.changePage('#pagefour', 'fade');
-            $('.video2').trigger('play');
+
+
+
+
+            myPlayer2.play();
+
+
+
         })
     })
 
-    function wait() {
 
+    // $('#mvideo').on('touchstart',function(e){
+    //     // alert(1)
+    //     e.stopPropagation()
+    //     return ;
+    // })
+
+    // $('#mvideo1').on('touchstart',function(e){
+    //     // alert(1)
+    //     e.stopPropagation()
+    //     return ;
+    // })
+
+    function wait() {
         setTimeout(function () {
             $.mobile.changePage('#pagefive', 'fade');
             $('.die').addClass('show')
             $('.again').addClass('show')
-        }, 2000);
+        }, 1);
 
     }
     $('.again').on('touchstart', function () {
         // window.location.hash = "";
         // location.reload()
-        $.mobile.changePage('#pagefour', 'fade');
-        $('.video2').trigger('play');
 
+        //$.mobile.changePage('#pagefour', 'fade');
+        //$('.video2').trigger('play');
+
+
+        $.mobile.changePage('#pagethree', 'fade');
+
+
+            //audio.play();
+
+        $('.count_0').find('img').attr('now', '1');
+        $('.count_1').find('img').attr('now', '0');
+        count_down();
     })
     function set_time(index, num) {
         $('.count_' + index).find('img').attr('now', num)
         img = time_array[num];
         $('.count_' + index).find('img').attr('src', img);
     }
+    myPlayer.on('ended', function () {
 
-    $('.video1').on('ended', function () {
-
-        $.mobile.changePage('#pagethree', 'fade');
-
+        //audio.play(); //播放
         count_down();
-    })
+        $.mobile.changePage('#pagethree', 'fade');
+        document.addEventListener("WeixinJSBridgeReady", function () { //监听微信准备就绪事件，只能在微信用
+            //audio.play(); //播放
+        }, false);
 
-    $('.video2').on('ended', function () {
+    });
+    // $('.video1').on('ended', function () {
 
-        $.mobile.changePage('#pageover', 'fade');
 
-    })
+    //     var audio = document.getElementById('audio1');
+    //     audio.play();
+    //     count_down();
+    //     $.mobile.changePage('#pagethree', 'fade');
+    // })
+    myPlayer2.on('ended', function () {
+        // $.mobile.changePage('#pageover', 'fade');
+
+        window.location = './over.html'
+
+    });
+    // $('.video2').on('ended', function () {
+
+    //     $.mobile.changePage('#pageover', 'fade');
+    //     // $('.pageover').addClass('show')
+
+    // })
 
     /**
      * 视频全屏播放旋转目前的逻辑
@@ -338,13 +501,22 @@
         if (osName === 'Android') {
             fullScreenOfAndroid();
         } else if (osName === 'iOS') {
-            var videoElem = document.getElementById('video');
-            fullScreenOfIos(videoElem);
+            // var videoElem = document.getElementById('mvideo');
+            fullScreenOfIos(video);
+            // var videoElem = document.getElementById('mvideo2');
+            fullScreenOfIos(video2);
         }
     });
-    $('.start').on('tap', function () {
+    $('.start').on('touchstart', function (event) {
+
+
+        if(start_falg==0){
+            return
+        }
+        // $('#page20').addClass('show');
         $.mobile.changePage('#page20', 'fade');
-        $('.video1').trigger('play');
+        // myPlayer.enterFullScreen();
+        myPlayer.play();
     })
     $(function () {
         window.addEventListener("popstate", function (e) {
@@ -356,5 +528,6 @@
     });
 </script>
 <script type="text/javascript" src="js/loading.js"></script>
-<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
 <script src="js/wxshare.js"></script>

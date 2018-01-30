@@ -106,6 +106,7 @@ body {
   padding-left: 0.5rem;
   font-size: 12px;
   color: #707070;
+  position: relative;
 }
 .banner > .nav > .nav-word > .agree {
   padding: 0 1rem 1rem 1rem;

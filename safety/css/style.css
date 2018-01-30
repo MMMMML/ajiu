@@ -7,7 +7,8 @@ html {
 }
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
+/*    touch-action: none;*/
 }
 body {
     width:100%;height:100%;
@@ -15,6 +16,10 @@ body {
     font-size: 12px;
     color: #333;
     overflow:hidden;
+}
+
+.main{
+  position: absolute;
 }
 .hide{
   opacity: 0;
@@ -39,9 +44,18 @@ body {
   font-size: 20px;
 }
 .load-box{
-  /*background:url(../img/bg_1.jpg) no-repeat top center /100%;*/
-  background:url(../img/_bg_1.gif) no-repeat;
-  background-size:100%;
+  /*background:url(../img/bg_1.jpg) no-repeat bottom center;*/
+/*  background:url(../img/_bg_1.gif) no-repeat  center center;
+  background-size:100% 100%;*/
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: absolute;
+}
+#pagefive{
+  /*background:url(../img/bg_1.jpg) no-repeat bottom center;*/
+/*  background:url(../img/_bg_1.gif) no-repeat  center center;
+  background-size:100% 100%;*/
   width: 100%;
   height: 100%;
   z-index: 999;
@@ -61,6 +75,7 @@ body {
   font-size: 1.3em;
 }
 .start{
+  touch-action: none;
   position: absolute;
   display: block;
   text-align: center;
@@ -96,8 +111,8 @@ body {
   width: 100%;
 }
 .main_third{
-     background:  url(../img/bkg_2.jpg) no-repeat top center /100%;
-     background-size:100% 100%;
+     /*background:  url(../img/bkg_2.jpg) no-repeat top center;*/
+     /*background-size:100% 100%;*/
      height: 100%;
      width: 100%;
      overflow: auto;
@@ -122,11 +137,16 @@ p.line-2{
 
 }
 .btn-box{
-	width: 218px;
+	/*width: 218px;
 	position: absolute;
 	top: 91px;
 	left: 50%;
-	margin-left: -109px;
+	margin-left: -109px;*/
+        width: 180px;
+    position: absolute;
+    top: 137px;
+    left: 50%;
+    margin-left: -89px;
 }
 .btn-box img{
 	width: 100%;
@@ -144,7 +164,7 @@ p.line-2{
   box-shadow: 1px;
 	position: absolute;
   background-color: #fff;
-	top: 320px;
+	top: 330px;
   width: 114px;
   margin-left: -57px;
   left: 50%;
@@ -162,8 +182,26 @@ p.line-2{
 .count-down li img{
 	width: 10px;
 }
-video {
-  width: 100%;
+.vid-wrapper{
+    width:100%;
+    position:relative;
+    position:relative;
+    padding-bottom:56.25%;    /*需要用padding来维持16:9比例,也就是9除以16*/
+    height: 0;
+    
+    background-color: #000;
+}
+.vid-wrapper video{
+    top:0px;
+    padding-bottom: 1000px;
+    object-fit:fill;
+    left: 0;
+    /*width: 100%;*/
+
+    height: 100%;
+    position: absolute;
+    /*object-position:center center;*/
+
 }
 .die{
   color: #fff;
@@ -197,6 +235,17 @@ video {
         overflow: hidden;
     }
     
+    video {
+        -webkit-transform:rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+        width: 100%;
+        height:100%;
+        /*去掉overflow 微信显示正常，但是浏览器有问题，竖屏时强制横屏缩小*/
+        overflow: hidden;
+    }
+    
 }
 @media screen and (orientation: landscape) {
     .main {
@@ -206,12 +255,17 @@ video {
         transform: rotate(0)
     }
 }
+
 .bg_3{
-  background:url(../img/bg_3.jpg) no-repeat top center /100%;
+  /*background:url(../img/bg_3.jpg) no-repeat top center /100%;
    width: 100%;
-  height: 100%;
-  z-index: 999;
+  height: 100%;*/
+  /*background: url(../img/bg_3.jpg) no-repeat top center;*/
+    z-index: 999;
   width: 100%;
   height: 100%;
   position: absolute;
 }
+video::-webkit-media-controls-enclosure {
+      display: none !important;
+  }

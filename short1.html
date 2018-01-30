@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>短期空降救援服务</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/short.css">
+    <link rel="stylesheet" href="js/iosselect/src/iosSelect.css">
+    <link rel="stylesheet" href="js/mobileSelect/css/mobileSelect.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?b25bf95dd99f58452db28b1e99a1a46f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+
+    <div class="banner">
+        <header>
+            <img src="img/top.png" alt="">
+        </header>
+        <div class="card">
+            <img src="img/card3.png" alt="">
+        </div>
+
+
+        <div class="nav">
+            <div class="warp"></div>
+            <div class="transform"></div>
+            <div class="nav-word">
+                <div class="identity">
+                    <input class="input1" type="text" placeholder="姓名">
+                    <input class="input2" type="text" placeholder="手机号">
+                    <div class="arrows">
+                            <div id="trigger1">身份证</div>
+                            <img class="up-arrow" src="img/up.png" alt="">
+                        </div>
+                    <input class="input3" type="text" id="trigger2">
+                    <!-- <input class="input4" id="showDom" type="text" placeholder="权益生效起始日期 年月日"> -->
+                    <div id="selectDate" style="position: relative;">
+                        <span data-year="" data-month="" data-date="" id="showDate">权益生效日期</span>
+                        <img style="position: absolute;top: 1.7rem;width: 4%;left: 5rem;" src="img/up.png" alt="">
+                        <span data-year="" data-month="" data-date="" id="showDate1">权益失效日期</span>
+                        <img style="position: absolute;top: 1.7rem;right: 1rem;width: 4%;" src="img/up.png" alt="">
+                    </div>
+
+                </div>
+                <div class="agree">
+                    <div class="checkbox-wrap">
+                        <input type="checkbox" class="checkbox" value="guangpan" name="choose" id="guangpan">
+                        <label for="guangpan">
+                            <div class="agree-nav">
+                                &nbsp; &nbsp;&nbsp;&nbsp; 本人已认真阅读
+                                <a href="about.html">
+                                    <span>《短期服务手册》</span>
+                                </a>
+                                和
+                                <a href="short1-statement.html">
+                                    <span>《重要告知与声明》</span>
+                                </a>
+                                并充分理解上述内容，认可相关服务条款，同意申请成为空间联盟会员。
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- <input class="checkbox" type="checkbox"> -->
+
+
+                </div>
+                <div class="button">
+                    <img src="img/payment.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="shade">
+        <div class="shade-img">
+            <img class="close" src="img/close.png" alt="">
+            <button class="shade-btn1">权益查询</button>
+            <a href="short1.html"><button class="shade-btn2">再次购买</button></a>
+
+        </div>
+        <!-- <img src="img/success.png" alt=""> -->
+
+    </div>
+
+    <script type="text/javascript" src="js/mta.js"></script>
+</body>
+<script src="js/iosselect/demo/datepicker/zepto.js"></script>
+<script src="js/iosselect/src/iosSelect.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/short1.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="js/mobileSelect/js/mobileSelect.min.js"></script>
+<script>   
+
+
+    ; (function (doc, win, undefined) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (clientWidth === undefined) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+            };
+        if (doc.addEventListener === undefined) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false)
+    })(document, window);
+</script>
+
+</html>
